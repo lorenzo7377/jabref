@@ -148,7 +148,16 @@ class StringUtilTest {
 
     @Test
     void testGetPart() {
-        // Should be added
+        void testGetPart() {
+        // Get word between braces
+        assertEquals("{makes}", StringUtil.getPart( "Practice {makes} perfect", 8, false));
+        // Compare empty strings
+        assertEquals("", StringUtil.getPart( "", 0, false));
+        // Looks for word between closed braces
+        assertEquals("", StringUtil.getPart( "A closed mouth no }flies}", 25, false));
+        // Get word on the end of the phrase
+        assertEquals("bite", StringUtil.getPart( "Barking dogs seldom bite", 19, true));
+    }
     }
 
     @Test
