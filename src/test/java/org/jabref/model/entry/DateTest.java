@@ -47,6 +47,18 @@ class DateTest {
     }
 
     @Test
+    void parseTooHighYearDate() throws Exception {
+        Date expected = new Date(Year.of(2014));
+        assertEquals(Optional.of(expected), Date.parse("2014"));
+    }
+
+    @Test
+    void parseTooLowYearDate() throws Exception {
+        Date expected = new Date(Year.of(2014));
+        assertEquals(Optional.of(expected), Date.parse("2004"));
+    }
+
+    @Test
     void parseDateNull() {
         assertThrows(NullPointerException.class, () -> Date.parse(null));
     }
